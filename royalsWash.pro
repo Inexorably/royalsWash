@@ -17,10 +17,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    maplestats.cpp
 
 HEADERS += \
-    mainwindow.h
+    globals.h \
+    mainwindow.h \
+    maplestats.h
 
 FORMS += \
     mainwindow.ui
