@@ -27,6 +27,10 @@ public:
 private slots:
     void on_pushButtonProcess_clicked();
 
+    void on_checkBoxMpWash_clicked();
+
+    void on_comboBoxClass_currentTextChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 };

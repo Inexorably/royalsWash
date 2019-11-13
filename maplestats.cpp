@@ -4,7 +4,25 @@ void mapleChar::levelUp(){
     lvl++;
 
     //Add mp from int.  The conversion to int will automatically floor.
-    mp += static_cast<int>((static_cast<double>(intBase) + static_cast<double>(intGear) + static_cast<double>(intBase)*static_cast<double>(mwLvl)/10*0.05)/10.0);
+    int gearCoef = 0;
+    if (lvl >= intGearStartLvl){
+        gearCoef = 1;
+    }
+    mp += static_cast<int>((static_cast<double>(intBase) + static_cast<double>(intGear*gearCoef) + static_cast<double>(intBase)*static_cast<double>(mwLvl)/10*0.05)/10.0);
+
+    //Mp wash 5 sp.
+    if (mpWashing && lvl >= mpWashStartLvl && lvl <= mpWashStopLvl && intBase > 400){
+        //If mage assume max improved mp, 10 per ap * 5.
+        if (mapleClass == MAGE){
+            mp += 50;
+        }
+        //Mp from washing.  Formula: https://mapleroyals.com/forum/threads/question-about-mp-washing.117452/
+        mp += 5*(intBase/10 - 30);
+
+
+        //Used aprs.
+        aprUsed += 5;
+    }
 
     //Add sp to int.
     if (lvl < addBaseIntUntilLvl){
@@ -95,5 +113,11 @@ void mapleChar::levelUp(){
             intBase += 3;
             mp += 475;
         }
+    }
+
+    //Wash base int out for non mage classes.
+    if (mapleClass != MAGE && lvl >= washBaseIntLvl){
+        aprUsed = intBase - 4;
+        intBase = 4;
     }
 }

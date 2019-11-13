@@ -35,11 +35,6 @@
           </item>
           <item>
            <property name="text">
-            <string>Beginner</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>Bowman</string>
            </property>
           </item>
@@ -215,7 +210,7 @@
           <item>
            <widget class="QCheckBox" name="checkBoxIncludeHpQuest">
             <property name="text">
-             <string>Include hp quest</string>
+             <string>Add base hp for hp quest</string>
             </property>
            </widget>
           </item>
@@ -257,7 +252,17 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="spinBoxWashBaseIntLvl"/>
+             <widget class="QSpinBox" name="spinBoxWashBaseIntLvl">
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>200</number>
+              </property>
+              <property name="value">
+               <number>200</number>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -271,7 +276,14 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="spinBoxIntGear"/>
+             <widget class="QSpinBox" name="spinBoxIntGear">
+              <property name="minimum">
+               <number>100</number>
+              </property>
+              <property name="maximum">
+               <number>1000</number>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -285,7 +297,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="spinBox_12"/>
+             <widget class="QSpinBox" name="spinBoxIntGearStartLvl">
+              <property name="maximum">
+               <number>200</number>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -315,6 +331,15 @@
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>200</number>
+                </property>
+                <property name="value">
+                 <number>148</number>
+                </property>
                </widget>
               </item>
              </layout>
@@ -332,9 +357,18 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBoxMpWashStop_2">
+               <widget class="QSpinBox" name="spinBoxMpWashStop">
                 <property name="enabled">
                  <bool>false</bool>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>200</number>
+                </property>
+                <property name="value">
+                 <number>200</number>
                 </property>
                </widget>
               </item>

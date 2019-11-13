@@ -34,6 +34,12 @@ void MainWindow::on_pushButtonProcess_clicked(){
     m.intBase = ui->spinBoxBaseInt->value();
     m.lvl = ui->spinBoxBaseLvl->value();
     m.mwLvl = ui->comboBoxMwLvl->currentText().toInt();
+    m.mpWashStartLvl = ui->spinBoxMpWashStart->value();
+    m.mpWashStopLvl = ui->spinBoxMpWashStop->value();
+    m.mpWashing = ui->checkBoxMpWash->isChecked();
+    m.intGear = ui->spinBoxIntGear->value();
+    m.intGearStartLvl = ui->spinBoxIntGearStartLvl->value();
+    m.hpQuest = ui->checkBoxIncludeHpQuest->isChecked();
 
     m.washBaseIntLvl = ui->spinBoxWashBaseIntLvl->value();
     m.addBaseIntUntilLvl = ui->spinBoxAddIntLvl->value();
@@ -44,6 +50,16 @@ void MainWindow::on_pushButtonProcess_clicked(){
     ui->tableWidgetBaseStats->setItem(0, 0, new QTableWidgetItem(QString::number(m.lvl)));
     ui->tableWidgetBaseStats->setItem(0, 1, new QTableWidgetItem(QString::number(m.hp)));
     ui->tableWidgetBaseStats->setItem(0, 2, new QTableWidgetItem(QString::number(m.mp)));
+
+    //Include hp quest?
+    if (m.hpQuest){
+        if (m.mapleClass == SPEARMAN || m.mapleClass == FIGHTER){
+            m.hp += 1000;
+        }
+        else if (m.mapleClass != MAGE){
+            m.hp += 500;
+        }
+    }
 
     //Level up to 200, printing the results to the table widget.
     for (; m.lvl < 200;){
@@ -56,4 +72,24 @@ void MainWindow::on_pushButtonProcess_clicked(){
         qDebug() << m.lvl;
     }
 
+}
+
+void MainWindow::on_checkBoxMpWash_clicked(){
+    ui->spinBoxMpWashStart->setEnabled(!ui->spinBoxMpWashStart->isEnabled());
+    ui->spinBoxMpWashStop->setEnabled(!ui->spinBoxMpWashStop->isEnabled());
+    ui->labelMpWashStart->setEnabled(!ui->labelMpWashStart->isEnabled());
+    ui->labelMpWashStop->setEnabled(!ui->labelMpWashStop->isEnabled());
+}
+
+void MainWindow::on_comboBoxClass_currentTextChanged(const QString &arg1){
+    if (arg1 == MAGE){
+        ui->spinBoxWashBaseIntLvl->setEnabled(0);
+        ui->spinBoxAddIntLvl->setEnabled(0);
+        ui->checkBoxIncludeHpQuest->setEnabled(0);
+    }
+    else{
+        ui->spinBoxWashBaseIntLvl->setEnabled(1);
+        ui->spinBoxAddIntLvl->setEnabled(1);
+        ui->checkBoxIncludeHpQuest->setEnabled(1);
+    }
 }

@@ -13,9 +13,20 @@ struct mapleChar{
     int mp;
     int intBase;
     int intGear;
+    int intGearStartLvl;
     int lvl;
 
     int mwLvl;
+
+    int aprUsed = 0;
+
+    //Hp quest?
+    bool hpQuest;
+
+    //Mp wash.
+    int mpWashStartLvl;
+    int mpWashStopLvl;
+    bool mpWashing;
 
     //Lvl to stop adding base int.
     int addBaseIntUntilLvl;
