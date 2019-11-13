@@ -33,6 +33,10 @@ void MainWindow::on_pushButtonProcess_clicked(){
     m.mp = ui->spinBoxBaseMp->value();
     m.intBase = ui->spinBoxBaseInt->value();
     m.lvl = ui->spinBoxBaseLvl->value();
+    m.mwLvl = ui->comboBoxMwLvl->currentText().toInt();
+
+    m.washBaseIntLvl = ui->spinBoxWashBaseIntLvl->value();
+    m.addBaseIntUntilLvl = ui->spinBoxAddIntLvl->value();
 
     //Store our start values in the table.
     ui->tableWidgetBaseStats->setRowCount(0);
