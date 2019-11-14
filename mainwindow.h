@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <QProcess>
 
 #include <QDebug>
 
@@ -32,6 +33,8 @@ private slots:
     void on_comboBoxClass_currentTextChanged(const QString &arg1);
 
     void on_checkBoxTargetMp_clicked(bool checked);
+
+    void on_actionNew_triggered();
 
 private:
     Ui::MainWindow *ui;

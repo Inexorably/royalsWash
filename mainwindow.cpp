@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     srand (time(NULL));
 
+    //Window title.
+    this->setWindowTitle("Wash Analysis");
+
     //Add columns to the table on start up.
     for (int i = 0; i < 6; ++i){
         ui->tableWidgetBaseStats->setColumnCount(ui->tableWidgetBaseStats->horizontalHeader()->count() + 1);
@@ -203,4 +206,10 @@ void MainWindow::on_comboBoxClass_currentTextChanged(const QString &arg1){
 
 void MainWindow::on_checkBoxTargetMp_clicked(bool checked){
     ui->spinBoxTargetMp->setEnabled(checked);
+}
+
+//Temporary implementation.
+void MainWindow::on_actionNew_triggered(){
+    QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+    qApp->quit();
 }

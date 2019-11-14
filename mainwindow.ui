@@ -10,8 +10,15 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>blizzard.ico</normaloff>blizzard.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -31,11 +38,6 @@
           <item>
            <property name="text">
             <string>Archer</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Bowman</string>
            </property>
           </item>
           <item>
@@ -475,6 +477,9 @@
   <action name="actionNew">
    <property name="text">
     <string>New file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
   <action name="actionLoad_file">
