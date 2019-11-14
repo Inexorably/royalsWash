@@ -31,6 +31,8 @@ private slots:
 
     void on_comboBoxClass_currentTextChanged(const QString &arg1);
 
+    void on_checkBoxTargetMp_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
 };

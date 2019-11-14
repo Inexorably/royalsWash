@@ -203,6 +203,18 @@
               <property name="enabled">
                <bool>false</bool>
               </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>30000</number>
+              </property>
+              <property name="singleStep">
+               <number>100</number>
+              </property>
+              <property name="value">
+               <number>29500</number>
+              </property>
              </widget>
             </item>
            </layout>
